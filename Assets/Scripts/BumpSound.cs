@@ -6,6 +6,7 @@ public class BumpSound : MonoBehaviour
 {
     [SerializeField] AudioClip bump;
     [SerializeField] AudioClip crash;
+    [SerializeField] AudioClip noot;
     AudioSource audio;
     void Start()
     {
@@ -13,9 +14,9 @@ public class BumpSound : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision) //Plays Sound Whenever collision detected
     {
-        if (collision.gameObject.tag == "peg")
+        if (collision.gameObject.tag == "ancher")
         {
-            audio.PlayOneShot(bump);
+            audio.PlayOneShot(noot);
         }
         if (collision.gameObject.tag == "domino")
         {
@@ -24,7 +25,9 @@ public class BumpSound : MonoBehaviour
         }
         if (collision.gameObject.tag == "ramp")
         {
-            audio.PlayOneShot(bump);
+            audio.clip = bump;
+            audio.Play();
+           // audio.PlayOneShot(bump);
         }
     }
 }
