@@ -7,6 +7,10 @@ public class BumpSound : MonoBehaviour
     [SerializeField] AudioClip bump;
     [SerializeField] AudioClip crash;
     [SerializeField] AudioClip noot;
+    [SerializeField] AudioClip pluh;
+    [SerializeField] AudioClip floor;
+    [SerializeField] AudioClip BONG;
+    [SerializeField] AudioClip mwhehe;
     AudioSource audio;
     void Start()
     {
@@ -27,7 +31,35 @@ public class BumpSound : MonoBehaviour
         {
             audio.clip = bump;
             audio.Play();
-           // audio.PlayOneShot(bump);
+           // audio.PlayOneShot(bump)
         }
+
+        if (collision.gameObject.tag == "the launcher")
+        {
+            audio.clip = pluh;
+            audio.Play();
+            // audio.PlayOneShot(bump);
+        }
+        if (collision.gameObject.tag == "floor")
+        {
+            audio.clip = floor;
+            // audio.Play();
+            audio.PlayOneShot(floor);
+        }
+
+        if (collision.gameObject.tag == "BONG")
+        {
+            audio.clip = BONG;
+            // audio.Play();
+            audio.PlayOneShot(BONG);
+        }
+
+        if (collision.gameObject.tag == "mwhehe")
+        {
+            audio.clip = mwhehe;
+            // audio.Play();
+            audio.PlayOneShot(mwhehe);
+        }
+
     }
 }
