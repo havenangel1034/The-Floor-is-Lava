@@ -11,6 +11,7 @@ public class BumpSound : MonoBehaviour
     [SerializeField] AudioClip floor;
     [SerializeField] AudioClip BONG;
     [SerializeField] AudioClip mwhehe;
+    [SerializeField] AudioClip nyancat;
     AudioSource audio;
     void Start()
     {
@@ -61,5 +62,11 @@ public class BumpSound : MonoBehaviour
             audio.PlayOneShot(mwhehe);
         }
 
+        if (collision.gameObject.tag == "nyancat")
+        {
+            audio.clip = nyancat;
+             //audio.Play();
+            audio.PlayOneShot(nyancat);
+        }
     }
 }
